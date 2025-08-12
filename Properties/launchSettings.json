@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Bring2mind.Backup.FileWatcher": {
+      "commandName": "Project"
+    },
+    "Container (Dockerfile)": {
+      "commandName": "Docker"
+    }
+  }
+}
