@@ -23,8 +23,8 @@
     public bool IsValid()
     {
       return !(string.IsNullOrEmpty(this.SiteUrl)
-          || !string.IsNullOrEmpty(this.WatchPath)
-          || !string.IsNullOrEmpty(this.ApiKey));
+          || string.IsNullOrEmpty(this.WatchPath)
+          || string.IsNullOrEmpty(this.ApiKey));
     }
   }
 }
