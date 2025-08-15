@@ -15,7 +15,10 @@ namespace Bring2mind.Backup.FileWatcher.Common
         {
           using (var outStream = objZipEntry.Open())
           {
-            Globals.CopyBigStream(fileIn, outStream);
+            // Globals.CopyBigStream(fileIn, outStream);
+            fileIn.CopyTo(outStream);
+            fileIn.Flush();
+            outStream.Flush();
           }
         }
       }

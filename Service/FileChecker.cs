@@ -15,6 +15,7 @@
 
     public void Run(Configuration config)
     {
+      _logger.LogInformation("Running FileChecker. Looking for {0}.", config.WatchPath);
       try
       {
         if (config.IsValid())
@@ -22,6 +23,7 @@
           var d = new DirectoryInfo(config.WatchPath);
           if (d.Exists)
           {
+            _logger.LogInformation("Examining {0}.", d.FullName);
             var filesToDelete = new List<string>();
             foreach (var backupFile in d.GetFiles("*.bak"))
             {
