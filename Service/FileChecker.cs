@@ -32,7 +32,15 @@
               if (!File.Exists(backupCompFile))
               {
                 _logger.LogInformation("Backup file {BackupFile} does not have a corresponding compressed resources file.", backupFile.Name);
-                CompressionManager.ZipFile(backupFile.FullName, backupCompFile);
+                if (backupFile.CanRead())
+                {
+                  CompressionManager.ZipFile(backupFile.FullName, backupCompFile);
+                }
+                else
+                {
+                  _logger.LogWarning("Backup file {BackupFile} cannot be read. Skipping compression.", backupFile.Name);
+                  continue;
+                }
               }
               else
               {
